@@ -1,0 +1,23 @@
+% 3. ML-обнаружение
+\begin{frame}{ML-обнаружение вредоносного трафика}
+\framesubtitle{Новая парадигма сетевой безопасности}
+\vspace{1mm}
+\begin{columns}[T,onlytextwidth]
+\column{0.44\textwidth}
+\begin{card}[height=5.9cm]
+  \cardtitle{Почему ML вытесняет правила}\vspace{1mm}
+  \iconitem{steel}{ic_eye_w.png}{Работает с зашифрованным трафиком — не смотрит в payload, только статистика}\vspace{4mm}
+  \iconitem{steel}{ic_bolt_w.png}{Ловит неизвестные и сложные атаки лучше сигнатурных методов}\vspace{4mm}
+  \iconitem{steel}{ic_server_w.png}{Развёртывается на «железе»: программируемые коммутаторы, SmartNIC}
+\end{card}
+\column{0.53\textwidth}
+\begin{wcard}[height=5.9cm]
+  \cardtitle{Признаки, на которых учатся детекторы}
+  \centering\includegraphics[width=0.94\linewidth]{fig4.png}\par\vspace{1.2mm}
+  \raggedright\figcap{Размеры пакетов и межпакетные задержки (IPD) — базовые статистики потока}\par\vspace{2mm}
+  \begin{darkcard}[top=1.8mm,bottom=1.8mm]\scriptsize
+    Примеры детекторов: Whisper, FlowLens, NetBeacon, Kitsune, \mbox{CICFlowMeter+MLP}
+  \end{darkcard}
+\end{wcard}
+\end{columns}
+\end{frame}
