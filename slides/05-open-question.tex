@@ -1,0 +1,20 @@
+% 5. Открытый вопрос
+\newcommand{\qcard}[3]{%
+  \begin{navycard}[height=1.25cm,valign=center]
+    \iconitem{accent}{#1}{{\bfseries\color{white}#2}\par\vspace{0.4mm}{\scriptsize\color{cardline}#3}}
+  \end{navycard}}
+{\begin{darkslide}
+\begin{frame}
+\vspace{12mm}
+{\scriptsize\bfseries\color{accentlt}Открытый вопрос}\par\vspace{3mm}
+{\headfont\bfseries\fontsize{17}{21}\selectfont\color{white}Возможна ли атака уклонения по\\«жёсткой метке» в чистом чёрном ящике?}\par\vspace{7mm}
+\begin{columns}[T,onlytextwidth]
+\column{0.485\textwidth}
+  \vspace{2mm}\qcard{ic_random_w.png}{Протокол-агностична}{любой трафик: шифрованный, туннель, обычный}\par\vspace{5mm}
+  \qcard{ic_eye_w.png}{Только «прошёл / не прошёл»}{единственный сигнал — блокирует ли система пакеты}
+\column{0.485\textwidth}
+  \vspace{2mm}\qcard{ic_puzzle_w.png}{Задаче-агностична}{сканирование, DoS, ботнеты, веб-атаки}\par\vspace{5mm}
+  \qcard{ic_check_w.png}{Сохранение вредоносности}{минимальные правки, атака продолжает работать}
+\end{columns}
+\end{frame}
+\end{darkslide}}
