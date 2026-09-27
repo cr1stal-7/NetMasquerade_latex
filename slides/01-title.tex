@@ -1,0 +1,22 @@
+% 1. Титул
+{\begin{darkslide}
+\begin{frame}[plain]
+\begin{tikzpicture}[remember picture,overlay]
+  % декоративные точки
+  \foreach \x/\c in {0/steel,1/accent,2/steel,3/accent}
+    \fill[\c] ($(current page.north east)+(-3.85cm+\x*1.05cm,-1.1cm)$) circle (0.22cm);
+  \foreach \x/\c in {0/steel,1/accent,2/steel}
+    \fill[\c] ($(current page.north east)+(-3.85cm+\x*1.05cm,-2.15cm)$) circle (0.22cm);
+  \node[anchor=north west,text width=13.2cm,align=left,inner sep=0pt] at ($(current page.north west)+(0.95cm,-1.25cm)$) {%
+    {\scriptsize\bfseries\color{accentlt}NDSS Symposium 2026}\par\vspace{5mm}
+    {\headfont\bfseries\fontsize{27}{30}\selectfont\color{white}NetMasquerade}\par\vspace{5mm}
+    {\normalsize\color{white!92!navy}Атака уклонения по «жёсткой метке» в режиме чёрного ящика на ML-системы обнаружения вредоносного трафика}\par\vspace{5mm}
+    \ico[0.75cm]{accent}{ic_mask_w.png}\hspace{2.5mm}{\scriptsize\itshape\color{white}Маскировка вредоносного трафика под легитимный с помощью Traffic-BERT + Reinforcement Learning}\par
+    \vspace{5mm}{\color{steel}\rule{13.2cm}{0.5pt}}\par\vspace{4mm}
+    {\scriptsize\bfseries\color{white}Zixuan Liu, Yi Zhao, Zhuotao Liu, Qi Li, Chuanpu Fu, Guangmeng Zhou, Ke Xu}\par\vspace{0.6mm}
+    {\tiny\color{cardline}Tsinghua University · Beijing Institute of Technology · Zhongguancun Lab}\par\vspace{3.5mm}
+    {\scriptsize\itshape\color{cardline}Докладчики: Пашков В.\,С., Штребель А.\,А., Реймер С.\,В. \ · \ группа ПИ-12 \ · \ 2026}
+  };
+\end{tikzpicture}
+\end{frame}
+\end{darkslide}}
