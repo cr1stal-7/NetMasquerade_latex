@@ -1,0 +1,22 @@
+% 2. План
+\newcommand{\plancard}[4]{%
+  \begin{wcard}[height=1.6cm,valign=center]
+    \begin{tikzpicture}[overlay]
+      \node[anchor=north east,inner sep=0pt] at (\linewidth,0.35cm)
+        {\headfont\bfseries\Large\color{cardline}#1};
+    \end{tikzpicture}%
+    \iconitem{navy}{#2}{{\bfseries\small\color{navy}#3}\par\vspace{0.5mm}\desc{#4}}
+  \end{wcard}}
+\begin{frame}{План доклада}
+\vspace{2mm}
+\begin{columns}[T,onlytextwidth]
+\column{0.485\textwidth}
+  \plancard{01}{ic_crosshairs_w.png}{Контекст и проблема}{ML-детекторы трафика и их уязвимость}\par\vspace{4.5mm}
+  \plancard{03}{ic_brain_w.png}{Ключевая идея}{От «жёсткой метки» к обучению с подкреплением}\par\vspace{4.5mm}
+  \plancard{05}{ic_chart_w.png}{Эксперименты}{6 детекторов, 80 сценариев, метрики}
+\column{0.485\textwidth}
+  \plancard{02}{ic_shield_w.png}{Модель угроз}{Что известно и не известно атакующему}\par\vspace{4.5mm}
+  \plancard{04}{ic_layers_w.png}{Архитектура}{Traffic-BERT + RL: две стадии}\par\vspace{4.5mm}
+  \plancard{06}{ic_balance_w.png}{Защиты и выводы}{Устойчивость, ограничения, значение}
+\end{columns}
+\end{frame}
