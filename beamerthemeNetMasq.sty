@@ -1,0 +1,119 @@
+%  beamerthemeNetMasq.sty — тема оформления доклада
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{beamerthemeNetMasq}[2026/09/27 NetMasquerade beamer theme]
+
+\RequirePackage{fontspec}
+\RequirePackage{etoolbox}
+\RequirePackage{tikz}
+\RequirePackage[most]{tcolorbox}
+\RequirePackage{graphicx}
+\RequirePackage{amsmath,amssymb}
+\usetikzlibrary{positioning,calc}
+
+% шрифты
+\setsansfont{Carlito}[
+  Path=fonts/, Extension=.ttf,
+  UprightFont=*-Regular, BoldFont=*-Bold,
+  ItalicFont=*-Italic, BoldItalicFont=*-BoldItalic]
+\setmainfont{Carlito}[
+  Path=fonts/, Extension=.ttf,
+  UprightFont=*-Regular, BoldFont=*-Bold,
+  ItalicFont=*-Italic, BoldItalicFont=*-BoldItalic]
+\newfontfamily\headfont{PT_Serif-Web}[
+  Path=fonts/, Extension=.ttf,
+  UprightFont=*-Regular, BoldFont=*-Bold,
+  ItalicFont=*-Italic, BoldItalicFont=*-BoldItalic]
+\usefonttheme{professionalfonts}
+
+% цвета
+\definecolor{navy}{HTML}{1B2A4A}
+\definecolor{navy2}{HTML}{24365C}
+\definecolor{steel}{HTML}{3E5C89}
+\definecolor{accent}{HTML}{E8833A}
+\definecolor{accentlt}{HTML}{F0A968}
+\definecolor{ink}{HTML}{23303F}
+\definecolor{muted}{HTML}{5A6473}
+\definecolor{mutedlt}{HTML}{8899AA}
+\definecolor{cardbg}{HTML}{EEF1F6}
+\definecolor{cardline}{HTML}{D6E2F2}
+\definecolor{okgreen}{HTML}{2E8B57}
+\definecolor{badred}{HTML}{C0392B}
+
+\setbeamercolor{normal text}{fg=ink,bg=white}
+\setbeamercolor{structure}{fg=navy}
+\setbeamercolor{alerted text}{fg=accent}
+\setbeamercolor{background canvas}{bg=white}
+
+% геометрия
+\setbeamersize{text margin left=0.75cm, text margin right=0.75cm}
+\setbeamertemplate{navigation symbols}{}
+\setbeamertemplate{itemize items}{\color{accent}\textbullet}
+
+% заголовок кадра
+\setbeamertemplate{frametitle}{%
+  \vspace*{3.5mm}%
+  {\headfont\bfseries\fontsize{15}{17}\selectfont\color{navy}\insertframetitle}%
+  \par\vspace{0.6mm}%
+  {\footnotesize\itshape\color{accent}\ifx\insertframesubtitle\@empty\strut\else\insertframesubtitle\fi}%
+  \vspace*{0.5mm}}
+
+% В ragged-режимах пробелы должны соответствовать текущему кеглю
+\AddToHook{selectfont}{\ifdim\spaceskip=\z@\else\spaceskip=\fontdimen2\font\relax\fi}
+
+% нижний колонтитул
+\setbeamertemplate{footline}{%
+  \leavevmode\hbox to\paperwidth{%
+    \hspace{0.75cm}{\fontsize{5}{6}\selectfont\color{mutedlt}NetMasquerade · NDSS 2026}%
+    \hfill{\fontsize{5}{6}\selectfont\color{mutedlt}\insertframenumber}\hspace{0.75cm}}%
+  \vspace*{2.5mm}}
+
+% тёмные слайды
+\newenvironment{darkslide}{%
+  \setbeamercolor{background canvas}{bg=navy}%
+  \setbeamercolor{normal text}{fg=white}%
+  \setbeamertemplate{footline}{}%
+  \usebeamercolor[fg]{normal text}}{}
+
+% иконки
+% \ico[диаметр]{цвет круга}{файл иконки из figs/icons}
+\newcommand{\ico}[3][0.62cm]{%
+  \tikz[baseline=(c.center)]\node[circle,fill=#2,minimum size=#1,inner sep=0pt](c)
+    {\includegraphics[width=0.52\dimexpr#1\relax]{figs/icons/#3}};}
+% иконка без круга
+\newcommand{\icoplain}[2][0.42cm]{%
+  \raisebox{-0.3\height}{\includegraphics[width=#1]{figs/icons/#2}}}
+
+% строка «иконка + текст»; \iconitem[диаметр]{цвет}{иконка}{текст}
+\newcommand{\iconitem}[4][0.62cm]{%
+  \par\noindent
+  \begin{minipage}[c]{\dimexpr#1+0.15cm\relax}\ico[#1]{#2}{#3}\end{minipage}%
+  \hspace{0.18cm}%
+  \begin{minipage}[c]{\dimexpr\linewidth-#1-0.33cm\relax}\raggedright #4\end{minipage}%
+  \par}
+
+% карточки
+\tcbset{
+  nmbase/.style={enhanced,boxrule=0pt,arc=1.6mm,left=2.6mm,right=2.6mm,
+    top=2.2mm,bottom=2.2mm,boxsep=0pt,before skip=0pt,after skip=0pt,
+    fontupper=\footnotesize\raggedright},
+}
+% светлая карточка
+\newtcolorbox{card}[1][]{nmbase,colback=cardbg,colframe=cardbg,
+  fontupper=\footnotesize\raggedright\color{ink},#1}
+% белая карточка с тонкой рамкой и тенью
+\newtcolorbox{wcard}[1][]{nmbase,colback=white,colframe=cardline,boxrule=0.5pt,
+  drop fuzzy shadow={black!25},fontupper=\footnotesize\raggedright\color{ink},#1}
+% тёмная карточка
+\newtcolorbox{darkcard}[1][]{nmbase,colback=navy,colframe=navy,
+  fontupper=\footnotesize\raggedright\color{white},#1}
+% карточка на тёмном фоне
+\newtcolorbox{navycard}[1][]{nmbase,colback=navy2,colframe=steel!70,boxrule=0.4pt,
+  fontupper=\footnotesize\raggedright\color{white},#1}
+
+\newcommand{\cardtitle}[1]{{\bfseries\small\color{navy}#1}\par\vspace{1.4mm}}
+\newcommand{\cardtitlew}[1]{{\bfseries\small\color{accentlt}#1}\par\vspace{1.4mm}}
+\newcommand{\desc}[1]{{\scriptsize\color{muted}#1}}
+\newcommand{\hl}[1]{{\bfseries\color{navy}#1}}
+\newcommand{\figcap}[1]{{\scriptsize\itshape\color{muted}#1\par}}
+
+\endinput
