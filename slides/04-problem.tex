@@ -1,0 +1,19 @@
+% 4. Проблема
+\newcommand{\limcard}[3]{%
+  \begin{wcard}[height=2.75cm]
+    \iconitem{steel}{#1}{\bfseries\color{navy}#2}\par\vspace{3mm}
+    \desc{#3}
+  \end{wcard}}
+\begin{frame}{Проблема: устойчивость ML почти не изучена}
+\framesubtitle{Атакующий может подделать трафик и обойти детектор}
+\vspace{1mm}
+\begin{card}
+  \iconitem{badred}{ic_bug_w.png}{\hl{Adversarial-трафик:} добавляя, задерживая или изменяя пакеты, атакующий заставляет модель классифицировать вредоносный поток как легитимный.}
+\end{card}\par\vspace{4mm}
+{\small\bfseries\color{navy}Ограничения существующих атак}\par\vspace{2.5mm}
+\begin{columns}[T,onlytextwidth]
+\column{0.315\textwidth}\limcard{ic_lock_w.png}{Узкие условия}{Требуют Tor, туннелей, шифрования или спец-настроек — ломаются при смене среды}
+\column{0.315\textwidth}\limcard{ic_eye_w.png}{Много знаний о цели}{White-box (градиенты) / gray-box (данные, признаки) — нереалистично}
+\column{0.315\textwidth}\limcard{ic_arrows_w.png}{Не переносятся}{Заточены под один протокол/задачу, плохо работают в разнородной среде}
+\end{columns}
+\end{frame}
