@@ -1,0 +1,18 @@
+% 7. Модель угроз
+\begin{frame}{Модель угроз}
+\framesubtitle{Атакующий управляет ботнетом, детектор стоит на входе жертвы}
+\vspace{1mm}
+\begin{columns}[T,onlytextwidth]
+\column{0.61\textwidth}
+  \vspace{4mm}
+  \includegraphics[width=\linewidth]{fig1.png}\par\vspace{3mm}
+  \figcap{Детектор пропускает легитимный трафик и блокирует / ограничивает вредоносный.}
+\column{0.36\textwidth}
+\begin{darkcard}[height=5.8cm]
+  \cardtitlew{Что делает система}\vspace{1.5mm}
+  \iconitem[0.5cm]{navy2}{ic_check_a.png}{Работает по статистике потока (размеры, задержки), payload не смотрит}\vspace{4mm}
+  \iconitem[0.5cm]{navy2}{ic_check_a.png}{Приоритет — доступность сети: дешевле дропнуть пакет, чем блокировать IP}\vspace{4mm}
+  \iconitem[0.5cm]{navy2}{ic_check_a.png}{Дроп/rate-limit создаёт наблюдаемую асимметрию поведения}
+\end{darkcard}
+\end{columns}
+\end{frame}
