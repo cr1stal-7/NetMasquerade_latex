@@ -1,0 +1,21 @@
+% 9. Ключевое наблюдение
+\begin{frame}{Ключевое наблюдение}
+\framesubtitle{Плотность распределений подсказывает направление атаки}
+\vspace{1mm}
+\begin{columns}[T,onlytextwidth]
+\column{0.485\textwidth}
+\begin{card}[height=3.1cm]
+  \iconitem{steel}{ic_network_w.png}{\bfseries\small\color{navy}Легитимный трафик — плотный}\par\vspace{3mm}
+  \desc{Распределения benign-потоков заполнены и разнообразны — есть куда «спрятаться».}
+\end{card}
+\column{0.485\textwidth}
+\begin{card}[height=3.1cm]
+  \iconitem{badred}{ic_bug_w.png}{\bfseries\small\color{navy}Вредоносный — разреженный}\par\vspace{3mm}
+  \desc{Атака-поток лежит в редкой области. Достаточно сдвинуть его к «многообразию» benign.}
+\end{card}
+\end{columns}
+\vspace{8mm}
+\begin{darkcard}[top=3.5mm,bottom=3.5mm]
+  \iconitem{accent}{ic_brain_w.png}{{\bfseries\color{accentlt}Идея:} обучаемо «сморфить» вредоносный поток в сторону benign-многообразия, сохранив семантику атаки. Границу решения ищем интерактивно — обучением с подкреплением (RL).}
+\end{darkcard}
+\end{frame}
