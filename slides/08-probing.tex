@@ -1,0 +1,24 @@
+% 8. Разведка
+\newcommand{\signalbox}[2]{%
+  \begin{tcolorbox}[nmbase,colback=#1,colframe=#1,halign=flush center,valign=center,height=1.05cm,
+    fontupper=\headfont\bfseries\small\color{white}]#2\end{tcolorbox}}
+\begin{frame}{Разведка: как получить «жёсткую метку»}
+\framesubtitle{Атакующий сам зондирует границу решения детектора}
+\vspace{1mm}
+\begin{columns}[T,onlytextwidth]
+\column{0.49\textwidth}
+\begin{card}[height=5.7cm]
+  \cardtitle{Пробный трафик}\vspace{1mm}
+  \iconitem{steel}{ic_arrows_w.png}{Повторяет размеры пакетов и IPD вредоносного потока, но без реального payload}\vspace{4.5mm}
+  \iconitem{steel}{ic_check_w.png}{TCP: ответ (RST/ACK/SYN-ACK) = прошёл; тишина = заблокирован}\vspace{4.5mm}
+  \iconitem{steel}{ic_search_w.png}{UDP/QUIC, ICMP-Unreachable, а также side-channel (TTL, IPID)}
+\end{card}
+\column{0.48\textwidth}
+\begin{darkcard}[height=5.7cm]
+  \cardtitlew{Бинарный сигнал}\vspace{1mm}
+  \signalbox{okgreen}{ПРОШЁЛ \ $\rightarrow$ \ ответ получен}\par\vspace{3mm}
+  \signalbox{badred}{ЗАБЛОКИРОВАН \ $\rightarrow$ \ тишина}\par\vspace{4mm}
+  {\scriptsize\color{cardline}Этого сигнала достаточно, чтобы обучать RL-политику — без доступа к модели цели.}
+\end{darkcard}
+\end{columns}
+\end{frame}
