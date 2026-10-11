@@ -1,0 +1,16 @@
+% 22. Рекомендации
+\newcommand{\recrow}[3]{%
+  \begin{wcard}[top=2.4mm,bottom=2.4mm]
+    \iconitem{navy}{#1}{{\bfseries\small\color{navy}#2}\par\vspace{0.6mm}\desc{#3}}
+  \end{wcard}\par\vspace{3mm}}
+\begin{frame}{Рекомендации по защите}
+\framesubtitle{Что авторы советуют разработчикам детекторов}
+\vspace{1.5mm}
+\recrow{ic_shieldv_w.png}{Traffic-space adversarial training}{обучать на пакетных возмущениях, а не на $L_p$-норме признаков}
+\recrow{ic_layers_w.png}{Сертификация в пространстве трафика}{ограничивать число вставленных пакетов, а не норму}
+\recrow{ic_random_w.png}{Случайность на инференсе}{менять архитектуру/параметры $\rightarrow$ атакующий бьёт по «распределению моделей»}
+\vspace{0.5mm}
+\begin{darkcard}[halign=flush center,top=2mm,bottom=2mm]
+  \bfseries Общий вывод: устойчивость ML-детекторов трафика остаётся нерешённой проблемой.
+\end{darkcard}
+\end{frame}
