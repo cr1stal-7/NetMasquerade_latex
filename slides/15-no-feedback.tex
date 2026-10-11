@@ -1,0 +1,15 @@
+% 15. Без обратной связи
+\begin{frame}{Стадия 2 · Атака без обратной связи}
+\framesubtitle{На инференсе метки может не быть — оцениваем награду офлайн}
+\vspace{2mm}
+\begin{card}[top=3mm,bottom=3mm]
+  \iconitem{steel}{ic_eye_w.png}{\hl{Проблема:} во время реальной атаки детектор не всегда даёт сигнал «прошёл / не прошёл» — нельзя понять, когда останавливаться.}
+\end{card}\par\vspace{4mm}
+\begin{darkcard}[top=3mm,bottom=3mm]
+  \iconitem{accent}{ic_check_w.png}{{\bfseries\color{accentlt}Решение:} аппроксимируем ожидаемую награду максимумом из двух обученных Q-сетей и останавливаемся по порогу $\xi'$ (взят из фазы обучения).}
+\end{darkcard}\par\vspace{4mm}
+\begin{card}[colback=cardline!60,colframe=cardline!60,halign=flush center,top=4mm,bottom=4mm]
+  {\headfont\bfseries\normalsize\color{navy}Условие остановки: \quad
+   $(t \ge \tau) \;\lor\; \bigl(\max_i Q_{\omega_i}(s_t, a_t) \ge \xi'\bigr)$}
+\end{card}
+\end{frame}
