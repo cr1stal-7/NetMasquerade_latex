@@ -1,0 +1,29 @@
+% 17. Главный результат
+\begin{frame}{Главный результат: успех атаки (ASR)}
+\framesubtitle{В 56 из 72 сценариев — лучший результат среди всех методов}
+\vspace{1mm}
+\begin{columns}[T,onlytextwidth]
+\column{0.3\textwidth}
+\begin{darkcard}[height=5.9cm,halign=flush center]
+  \vspace{4mm}
+  {\scriptsize\color{white}в среднем}\par\vspace{3mm}
+  {\headfont\bfseries\fontsize{24}{26}\selectfont\color{accentlt}96.65\%}\par\vspace{3mm}
+  {\scriptsize\color{white}успешных уклонений}\par\vspace{3mm}
+  {\color{steel}\rule{0.85\linewidth}{0.5pt}}\par\vspace{7mm}
+  {\scriptsize\color{white}ASR по детекторам: 0.96–0.99\\против 6 систем}
+\end{darkcard}
+\column{0.66\textwidth}
+  {\small\bfseries\color{navy}Прирост ASR над лучшим базовым методом, \%}\par\vspace{3mm}
+  \begin{tikzpicture}[x=0.285cm,y=0.72cm,font=\scriptsize]
+    \foreach \name/\val/\c [count=\i] in {
+        Whisper/2.61/steel, FlowLens/3.11/steel, NetBeacon/15.53/accent,
+        Vanilla+RNN/21.88/accent, CICFlowMeter/20.78/accent, Kitsune/14.42/accent} {
+      \pgfmathsetmacro{\yy}{-\i}
+      \node[anchor=east,text=ink] at (-0.4,\yy) {\name};
+      \fill[\c,rounded corners=0.6pt] (0,\yy-0.24) rectangle (\val,\yy+0.24);
+      \node[anchor=west,text=ink,font=\scriptsize\bfseries] at (\val+0.25,\yy) {+\val};
+    }
+  \end{tikzpicture}\par\vspace{2mm}
+  \figcap{Наибольший выигрыш — против DL-детекторов, где базовые атаки слабы.}
+\end{columns}
+\end{frame}
