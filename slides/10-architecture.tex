@@ -1,0 +1,15 @@
+% 10. Архитектура
+\begin{frame}{Общая архитектура: две стадии}
+\vspace{1mm}
+\centering\includegraphics[height=4.85cm]{fig2.png}\par\vspace{2.5mm}
+\begin{columns}[T,onlytextwidth]
+\column{0.485\textwidth}
+\begin{card}[top=1.6mm,bottom=1.6mm]\scriptsize
+  {\bfseries\color{navy}Стадия 1} · Traffic-BERT учит паттерны легитимного трафика (офлайн).
+\end{card}
+\column{0.485\textwidth}
+\begin{card}[top=1.6mm,bottom=1.6mm]\scriptsize
+  {\bfseries\color{accent}Стадия 2} · RL-политика выбирает, где и как править пакеты (онлайн).
+\end{card}
+\end{columns}
+\end{frame}
