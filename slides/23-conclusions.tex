@@ -1,0 +1,21 @@
+% 23. Выводы
+\newcommand{\concl}[2]{%
+  \begin{navycard}[top=1.9mm,bottom=1.9mm]
+    \iconitem[0.55cm]{accent}{#1}{\small #2}
+  \end{navycard}\par\vspace{2.4mm}}
+{\begin{darkslide}
+\begin{frame}
+\vspace{3mm}
+{\headfont\bfseries\fontsize{17}{20}\selectfont\color{white}Выводы}\par
+\vspace{1mm}{\color{accent}\rule{1.3cm}{1pt}}\par\vspace{4mm}
+\concl{ic_mask_w.png}{NetMasquerade — первая практичная атака уклонения по «жёсткой метке» в чистом чёрном ящике}
+\concl{ic_layers_w.png}{Traffic-BERT ловит паттерны легитимного трафика; RL минимально правит вредоносный поток}
+\concl{ic_flag_w.png}{96.65\% ASR в среднем, $\le$10 шагов, обход даже сертифицированных защит}
+\concl{ic_shieldv_w.png}{Главный посыл: устойчивость ML-детекторов трафика нужно усиливать в пространстве трафика}
+\vspace{1.5mm}
+\begin{tcolorbox}[nmbase,colback=accent,colframe=accent,halign=flush center,top=2mm,bottom=2mm,
+  fontupper=\small\bfseries\color{white}]
+  Спасибо за внимание!\qquad · \qquad \href{https://github.com/cr1stal-7/NetMasquerade_latex}{github.com/cr1stal-7/NetMasquerade}
+\end{tcolorbox}
+\end{frame}
+\end{darkslide}}
