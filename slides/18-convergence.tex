@@ -1,0 +1,26 @@
+% 18. Сходимость и скрытность
+\newcommand{\minstat}[3]{%
+  \ico[0.55cm]{accent}{#1}\hspace{1.8mm}{\headfont\bfseries\small\color{accentlt}#2}\hspace{1.2mm}{\scriptsize\color{white}#3}}
+\begin{frame}{Быстрая сходимость и скрытность}
+\vspace{1mm}
+\begin{columns}[T,onlytextwidth]
+\column{0.485\textwidth}
+\begin{wcard}[height=4.35cm]
+  \cardtitle{Сходимость RL (max Q-value)}
+  \centering\includegraphics[width=\linewidth,height=2.65cm,keepaspectratio]{fig6.png}\par\vspace{2mm}
+  \raggedright\figcap{90\% сходимости < 420 эпизодов; онлайн-стадия $\approx$ 1 час.}
+\end{wcard}
+\column{0.485\textwidth}
+\begin{wcard}[height=4.35cm]
+  \cardtitle{Полоса пропускания: до / после}
+  \centering\includegraphics[width=\linewidth,height=2.65cm,keepaspectratio]{fig8.png}\par\vspace{2mm}
+  \raggedright\figcap{KL-дивергенция всего 0.009–0.013 — распределение почти не меняется.}
+\end{wcard}
+\end{columns}
+\vspace{4mm}
+\begin{darkcard}[top=2.2mm,bottom=2.2mm]
+  \minstat{ic_flag_w.png}{$\le$ 10 шагов}{правок на поток}\hfill
+  \minstat{ic_tacho_w.png}{4.239K пак/с}{генерация трафика}\hfill
+  \minstat{ic_bolt_w.png}{×69.6}{быстрее Traffic Manipulator}
+\end{darkcard}
+\end{frame}
