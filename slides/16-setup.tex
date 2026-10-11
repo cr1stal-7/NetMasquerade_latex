@@ -1,0 +1,33 @@
+% 16. Постановка экспериментов
+\newcommand{\statbox}[5]{% bg, number color, number, label, sublabel
+  \begin{tcolorbox}[nmbase,colback=#1,colframe=#1,halign=flush center,height=1.95cm,valign=center]
+    {\headfont\bfseries\fontsize{19}{21}\selectfont\color{#2}#3}\par\vspace{1mm}
+    {\scriptsize\bfseries\ifstrequal{#1}{navy}{\color{white}}{\color{navy}} #4}\par\vspace{0.3mm}
+    {\tiny\ifstrequal{#1}{navy}{\color{cardline}}{\color{muted}} #5}
+  \end{tcolorbox}}
+\begin{frame}{Постановка экспериментов}
+\vspace{1mm}
+\begin{columns}[T,onlytextwidth]
+\column{0.235\textwidth}\statbox{navy}{accentlt}{6}{детекторов-целей}{3 традиционных ML + 3 DL}
+\column{0.235\textwidth}\statbox{cardbg}{accent}{80}{сценариев атак}{12 типов трафика × методы}
+\column{0.235\textwidth}\statbox{navy}{accentlt}{12}{типов трафика}{скан, DoS, ботнеты, веб-атаки}
+\column{0.235\textwidth}\statbox{cardbg}{accent}{4}{базовых метода}{R.M., M.I., \mbox{Traffic Manipulator}, Amoeba}
+\end{columns}
+\vspace{3.5mm}
+\begin{columns}[T,onlytextwidth]
+\column{0.485\textwidth}
+\begin{wcard}[height=3.3cm]\scriptsize
+  \cardtitle{Данные и стенд}
+  \iconitem[0.5cm]{steel}{ic_network_w.png}{Фон — WIDE MAWI (июнь/август 2023), >1 млн потоков}\vspace{2mm}
+  \iconitem[0.5cm]{steel}{ic_server_w.png}{PyTorch + Intel DPDK, Xeon Gold 6348, A100, NIC 2×10 Гбит/с}\vspace{2mm}
+  \iconitem[0.5cm]{steel}{ic_book_w.png}{Датасеты: Kitsune, PeerRush, HyperVision (только публичные)}
+\end{wcard}
+\column{0.485\textwidth}
+\begin{wcard}[height=3.3cm]\scriptsize
+  \cardtitle{Метрики}
+  \iconitem[0.5cm]{accent}{ic_bullseye_w.png}{\hl{ASR} — доля вредоносных потоков, не пойманных детектором}\vspace{2mm}
+  \iconitem[0.5cm]{accent}{ic_chart_w.png}{\hl{AUC / F1} — качество самих детекторов без атаки}\vspace{2mm}
+  \iconitem[0.5cm]{accent}{ic_tacho_w.png}{\hl{Bandwidth} (Mbps) и \hl{throughput} (PPS) — влияние и скорость}
+\end{wcard}
+\end{columns}
+\end{frame}
