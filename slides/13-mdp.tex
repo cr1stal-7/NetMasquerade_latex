@@ -1,0 +1,27 @@
+% 13. MDP
+\newcommand{\mdprow}[3]{%
+  \begin{card}[top=1.5mm,bottom=1.5mm,left=2mm]
+    \iconitem[0.55cm]{navy}{#1}{\hl{#2}\quad #3}
+  \end{card}\par\vspace{1.9mm}}
+\newcommand{\rewrow}[2]{{\headfont\bfseries\small\color{accentlt}#1}\par\vspace{0.6mm}
+  {\scriptsize\color{cardline}#2}\par\vspace{0.8mm}{\color{steel}\rule{\linewidth}{0.4pt}}\par\vspace{2mm}}
+\begin{frame}{Стадия 2 · Формализация как MDP}
+\framesubtitle{Генерация adversarial-трафика = марковский процесс принятия решений}
+\vspace{1mm}
+\begin{columns}[T,onlytextwidth]
+\column{0.62\textwidth}
+  \mdprow{ic_layers_w.png}{Состояние $S$}{$(P_t, H_t)$ — текущие последовательности размеров и задержек}
+  \mdprow{ic_random_w.png}{Действие $A$}{$2n{+}1$ вариантов: изменить пакет $i$ или вставить chaff-пакет}
+  \mdprow{ic_gears_w.png}{Переход $P$}{детерминированный: Traffic-BERT заполняет [MASK]}
+  \mdprow{ic_balance_w.png}{Награда $R$}{$r = r_E + \beta\, r_D + \gamma\, r_M$}
+  \mdprow{ic_clock_w.png}{Горизонт $T$}{стоп при $t = \tau$ ($\le 10$) или достижении порога уклонения $\xi$}
+\column{0.35\textwidth}
+\begin{darkcard}[height=5.95cm]
+  \cardtitlew{Награда: три части}\vspace{0.5mm}
+  \rewrow{$r_E$}{доля пакетов, прошедших детектор (главная цель)}
+  \rewrow{$\beta\, r_D$}{штраф непохожести: $-1$ за шаг $\rightarrow$ минимум правок}
+  {\headfont\bfseries\small\color{accentlt}$\gamma\, r_M$}\par\vspace{0.6mm}
+  {\scriptsize\color{cardline}штраф эффективности: сохраняет функцию атаки (напр. rate для DoS)}
+\end{darkcard}
+\end{columns}
+\end{frame}
