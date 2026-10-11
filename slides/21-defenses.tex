@@ -1,0 +1,19 @@
+% 21. Устойчивость против защит
+\begin{frame}{Устойчивость против защит}
+\framesubtitle{Защиты в пространстве признаков не спасают}
+\vspace{1mm}
+\begin{columns}[T,onlytextwidth]
+\column{0.53\textwidth}
+  \vspace{4mm}
+  \includegraphics[width=\linewidth]{fig12.png}\par\vspace{3mm}
+  \figcap{ASR против сертифицированной защиты BARS остаётся высоким по 8 датасетам.}
+\column{0.44\textwidth}
+\begin{wcard}[height=5.9cm]\scriptsize
+  \cardtitle{Почему защиты не работают}\vspace{0.5mm}
+  \iconitem[0.52cm]{badred}{ic_shieldv_w.png}{Adversarial training и randomized smoothing ограничивают норму в пространстве признаков}\vspace{3.2mm}
+  \iconitem[0.52cm]{steel}{ic_arrows_w.png}{NetMasquerade правит трафик в физическом пространстве $\rightarrow$ это «неограниченная» атака}\vspace{3.2mm}
+  \iconitem[0.52cm]{steel}{ic_bolt_w.png}{Малое возмущение трафика = большое расстояние в признаках, выходящее за сертиф. границу}\vspace{3.2mm}
+  \iconitem[0.52cm]{accent}{ic_balance_w.png}{Иногда ASR даже выше: аугментация шумом снижает точность самой модели}
+\end{wcard}
+\end{columns}
+\end{frame}
