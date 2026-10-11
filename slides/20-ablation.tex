@@ -1,0 +1,19 @@
+% 20. Абляция
+\newcommand{\ablrow}[6]{% bg, tagbg, tag, title, sub, value
+  \begin{tcolorbox}[nmbase,colback=#1,colframe=#1,top=1.8mm,bottom=1.8mm]
+    \begin{minipage}[c]{1.35cm}\centering
+      \tikz\node[fill=#2,rounded corners=1pt,text=white,font=\scriptsize\bfseries,
+        minimum width=1.2cm,minimum height=0.5cm]{#3};\end{minipage}\hspace{3mm}%
+    \begin{minipage}[c]{0.55\linewidth}
+      {\bfseries\ifstrequal{#1}{navy}{\color{white}}{\color{navy}} #4}\par\vspace{0.3mm}
+      {\scriptsize\ifstrequal{#1}{navy}{\color{cardline}}{\color{muted}} #5}\end{minipage}\hfill
+    {\headfont\bfseries\normalsize\ifstrequal{#1}{navy}{\color{accentlt}}{\color{badred}} #6}
+  \end{tcolorbox}\par\vspace{2.3mm}}
+\begin{frame}{Абляция: зачем нужны обе стадии}
+\framesubtitle{Убрать или упростить любую стадию → ASR резко падает}
+\vspace{1.5mm}
+\ablrow{cardbg}{steel}{S1}{Только Стадия 1}{случайный выбор позиций}{$-$56\% ASR}
+\ablrow{cardbg}{steel}{S2-S}{Только Стадия 2 (случайные значения)}{стохастика ломает сходимость}{$-$37.4\%}
+\ablrow{cardbg}{steel}{S2-F}{Только Стадия 2 (средние значения)}{не ловит пики трафика}{$-$26.8\%}
+\ablrow{navy}{accent}{Full}{NetMasquerade}{RL + Traffic-BERT вместе}{0.89–0.99}
+\end{frame}
