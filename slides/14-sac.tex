@@ -1,0 +1,28 @@
+% 14. SAC
+\newcommand{\step}[2]{%
+  \par\noindent\tikz[baseline=(n.base)]\node[circle,fill=accent,text=white,inner sep=0pt,
+    minimum size=0.42cm,font=\scriptsize\bfseries](n){#1};\hspace{2mm}#2\par\vspace{2.6mm}}
+\begin{frame}{Стадия 2 · Оптимизация политики (SAC)}
+\framesubtitle{Soft Actor-Critic: сильное исследование большого дискретного пространства}
+\vspace{1mm}
+\begin{columns}[T,onlytextwidth]
+\column{0.56\textwidth}
+\begin{card}[height=5.9cm]\scriptsize
+  \cardtitle{Почему такой выбор}
+  \iconitem[0.55cm]{steel}{ic_gears_w.png}{\hl{GRU-политика}\ \ лёгкая RNN: понимает последовательность, быстро обучается}\vspace{3.2mm}
+  \iconitem[0.55cm]{steel}{ic_balance_w.png}{\hl{Двойные Q-сети}\ \ снижают переоценку значений действий}\vspace{3.2mm}
+  \iconitem[0.55cm]{steel}{ic_random_w.png}{\hl{Invalid Action Masking}\ \ отсекает недопустимые позиции ($n >$ длины потока)}\vspace{3.2mm}
+  \iconitem[0.55cm]{steel}{ic_brain_w.png}{\hl{Traffic-BERT «заморожен»}\ \ часть среды $\rightarrow$ обучение развязано и дешевле}
+\end{card}
+\column{0.41\textwidth}
+\begin{wcard}[height=5.9cm]\scriptsize
+  \cardtitle{Один шаг обучения}\vspace{0.5mm}
+  \step{1}{Политика выбирает действие $a_t$}
+  \step{2}{Вставка / замена на [MASK]}
+  \step{3}{Traffic-BERT заполняет $\rightarrow s_{t+1}$}
+  \step{4}{Отправка потока, замер награды}
+  \step{5}{Транзиция в replay-буфер}
+  \step{6}{Обновление Q-сетей и политики}
+\end{wcard}
+\end{columns}
+\end{frame}
